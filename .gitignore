@@ -1,0 +1,28 @@
+# Ignorar archivos de configuración sensible
+config/database.php
+config/smtp.php
+
+# Ignorar archivos del SO
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Ignorar IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Cache
+.cache/
+tmp/
+
+# Archivos de XAMPP
+.htaccess
+
+# Otros
+.env
+.env.local

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido - Sistema de Carpetas de Licencias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .step {
+            background: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .step h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .step ul {
+            margin-left: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .step li {
+            margin-bottom: 5px;
+        }
+
+        .actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            grid-column: 1 / -1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-info {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .btn-info:hover {
+            background: #138496;
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #0c5460;
+        }
+
+        .info-box strong {
+            color: #0066cc;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .logo h1 {
+                font-size: 24px;
+            }
+
+            .actions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>🚗 Carpetas de Licencias</h1>
+            <p>Sistema Municipal de Solicitudes</p>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">1</span> Instalación Base</h3>
+            <p>Sigue estos pasos iniciales:</p>
+            <ul>
+                <li>XAMPP debe estar corriendo (Apache + MySQL)</li>
+                <li>Ejecutar script SQL: <code>sql/database.sql</code></li>
+                <li>Verificar conexión en: <code>config/database.php</code></li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span> Configuración SMTP</h3>
+            <p>Para enviar correos:</p>
+            <ul>
+                <li>Acceder como admin</li>
+                <li>Ir a: Administración > Configuración SMTP</li>
+                <li>Si usas Gmail, generar contraseña aquí:<br>
+                    <code>https://myaccount.google.com/apppasswords</code></li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span> Primer Funcionario</h3>
+            <p>Crear un usuario para atender solicitudes:</p>
+            <ul>
+                <li>Admin > Gestionar Funcionarios</li>
+                <li>Crear nombre, correo y contraseña</li>
+                <li>Guardar</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span> ¡Listo!</h3>
+            <p>El sistema está listo para usar. Puedes:</p>
+            <ul>
+                <li>Crear solicitudes (sin login)</li>
+                <li>Gestionar como funcionario</li>
+                <li>Administrar el sistema</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>ℹ️  Importante:</strong> Cambiar la contraseña del admin (admin123) es altamente recomendado después del primer acceso.
+        </div>
+
+        <div class="actions">
+            <a href="index.php" class="btn btn-success">📋 Crear Solicitud</a>
+            <a href="funcionario/login.php" class="btn btn-info">🔐 Acceso Funcionario</a>
+            <a href="administrador/dashboard.php" class="btn btn-primary">Ir a Administración</a>
+        </div>
+
+        <div class="info-box" style="margin-top: 20px;">
+            <strong>Documentación:</strong>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><a href="README.md" style="color: #0066cc;">README.md</a> - Documentación completa</li>
+                <li><a href="INSTALACION.md" style="color: #0066cc;">INSTALACION.md</a> - Guía de instalación</li>
+                <li><a href="CHECKLIST_CONFIGURACION.md" style="color: #0066cc;">CHECKLIST_CONFIGURACION.md</a> - Lista de verificación</li>
+                <li><a href="info.php" style="color: #0066cc;">info.php</a> - Info del sistema</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
