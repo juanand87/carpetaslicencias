@@ -270,6 +270,7 @@ INSERT IGNORE INTO municipalidades (nombre, region) VALUES
 ('La Unión', 'Los Ríos'),
 ('Futrono', 'Los Ríos'),
 ('Lago Ranco', 'Los Ríos'),
+('Los Lagos', 'Los Ríos'),
 ('Puerto Varas', 'Los Lagos'),
 ('Carelmapu', 'Los Lagos'),
 ('Cochamó', 'Los Lagos'),
