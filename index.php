@@ -81,15 +81,25 @@ while ($row = $result->fetch_assoc()) {
                 </div>
 
                 <div class="form-group">
-                    <label for="municipalidad_id">Municipalidad <span class="requerido">*</span></label>
-                    <select id="municipalidad_id" name="municipalidad_id" required>
-                        <option value="">Seleccione una municipalidad...</option>
+                    <label for="buscador_municipalidad">Municipalidad <span class="requerido">*</span></label>
+                    <input
+                        type="text"
+                        id="buscador_municipalidad"
+                        list="lista_municipalidades"
+                        placeholder="Escriba para buscar una comuna..."
+                        autocomplete="off"
+                        required
+                    >
+                    <datalist id="lista_municipalidades">
                         <?php foreach ($municipalidades as $municipalidad): ?>
-                            <option value="<?= $municipalidad['id'] ?>">
-                                <?= htmlspecialchars($municipalidad['nombre']) ?> - <?= htmlspecialchars($municipalidad['region']) ?>
-                            </option>
+                            <option
+                                value="<?= htmlspecialchars($municipalidad['nombre']) ?> - <?= htmlspecialchars($municipalidad['region']) ?>"
+                                data-id="<?= (int) $municipalidad['id'] ?>"
+                            ></option>
                         <?php endforeach; ?>
-                    </select>
+                    </datalist>
+                    <input type="hidden" id="municipalidad_id" name="municipalidad_id" value="">
+                    <small>Escriba parte del nombre y seleccione una municipalidad de la lista.</small>
                 </div>
 
                 <p class="nota"><strong>Nota:</strong> Se enviará un correo de confirmación al email registrado.</p>
@@ -100,16 +110,15 @@ while ($row = $result->fetch_assoc()) {
             </form>
         </div>
 
-        <div class="enlaces-rapidos">
-            <h3>¿Es funcionario?</h3>
-            <p>Si trabaja en el municipio de Los Lagos y necesita acceder al panel de gestión de solicitudes:</p>
-            <a href="funcionario/login.php" class="btn btn-secondary">Acceso de Funcionario</a>
+        <div class="acceso-funcionario">
+            <a href="funcionario/login.php">Acceso Funcionario</a>
         </div>
     </div>
 
     <div class="footer">
         <p>&copy; 2024 Sistema de Solicitudes - Municipalidad de Los Lagos</p>
     </div>
+    <script src="public/js/buscador-municipalidades.js?v=20260812-1" defer></script>
     <script src="public/js/espera.js?v=20260730-1" defer></script>
 </body>
 </html>

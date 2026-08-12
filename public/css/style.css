@@ -234,23 +234,22 @@ a:hover {
     color: #856404;
 }
 
-/* Enlaces rápidos */
-.enlaces-rapidos {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* Acceso secundario para funcionarios */
+.acceso-funcionario {
+    margin: -16px 0 28px;
+    text-align: center;
 }
 
-.enlaces-rapidos h3 {
-    color: #333;
-    margin-bottom: 10px;
+.acceso-funcionario a {
+    color: #6c757d;
+    font-size: 13px;
+    text-decoration: none;
 }
 
-.enlaces-rapidos p {
-    color: #666;
-    margin-bottom: 15px;
-    font-size: 14px;
+.acceso-funcionario a:hover,
+.acceso-funcionario a:focus {
+    color: #0b2f5b;
+    text-decoration: underline;
 }
 
 /* Tablas */
@@ -375,8 +374,7 @@ a:hover {
         font-size: 20px;
     }
 
-    .formulario-contenedor,
-    .enlaces-rapidos {
+    .formulario-contenedor {
         padding: 20px;
     }
 
