@@ -33,13 +33,13 @@ while ($row = $result->fetch_assoc()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Solicitudes - Carpetas de Licencias</title>
     <link rel="stylesheet" href="public/vendor/tom-select/tom-select.default.min.css?v=2.6.2">
-    <link rel="stylesheet" href="public/css/style.css?v=20260812-4">
+    <link rel="stylesheet" href="public/css/style.css?v=20260812-5">
 </head>
 <body>
     <div class="header">
         <div class="container">
             <h1>Sistema de Solicitudes de Carpetas de Licencias</h1>
-            <p>Los Lagos - Municipalidad</p>
+            <p>Municipalidad de Los Lagos</p>
         </div>
     </div>
 
@@ -114,7 +114,7 @@ while ($row = $result->fetch_assoc()) {
         </div>
     </div>
     <script src="public/vendor/tom-select/tom-select.complete.min.js?v=2.6.2" defer></script>
-    <script src="public/js/buscador-municipalidades.js?v=20260812-4" defer></script>
+    <script src="public/js/buscador-municipalidades.js?v=20260812-5" defer></script>
     <script src="public/js/espera.js?v=20260730-1" defer></script>
 </body>
 </html>

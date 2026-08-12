@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     new TomSelect(selector, {
+        plugins: ['dropdown_input'],
         create: false,
         maxItems: 1,
         allowEmptyOption: true,
@@ -23,6 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
         closeAfterSelect: true,
         render: {
             no_results: () => '<div class="no-results">No se encontraron comunas</div>'
+        },
+        onDropdownOpen: function () {
+            const entradaBusqueda = this.dropdown?.querySelector('.dropdown-input');
+            if (entradaBusqueda) {
+                entradaBusqueda.placeholder = 'Escriba para buscar una comuna...';
+                entradaBusqueda.setAttribute('aria-label', 'Buscar comuna');
+            }
         },
         onChange: mostrarRegion
     });
