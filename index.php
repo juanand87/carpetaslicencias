@@ -81,25 +81,27 @@ while ($row = $result->fetch_assoc()) {
                 </div>
 
                 <div class="form-group">
-                    <label for="buscador_municipalidad">Municipalidad <span class="requerido">*</span></label>
+                    <label for="buscador_municipalidad">Buscar comuna</label>
                     <input
                         type="text"
                         id="buscador_municipalidad"
-                        list="lista_municipalidades"
                         placeholder="Escriba para buscar una comuna..."
                         autocomplete="off"
-                        required
                     >
-                    <datalist id="lista_municipalidades">
+                    <label for="municipalidad_id" class="label-selector-municipalidad">Municipalidad <span class="requerido">*</span></label>
+                    <select id="municipalidad_id" name="municipalidad_id" required>
+                        <option value="">Seleccione una municipalidad...</option>
                         <?php foreach ($municipalidades as $municipalidad): ?>
                             <option
-                                value="<?= htmlspecialchars($municipalidad['nombre']) ?> - <?= htmlspecialchars($municipalidad['region']) ?>"
-                                data-id="<?= (int) $municipalidad['id'] ?>"
-                            ></option>
+                                value="<?= (int) $municipalidad['id'] ?>"
+                                data-region="<?= htmlspecialchars($municipalidad['region']) ?>"
+                            ><?= htmlspecialchars($municipalidad['nombre']) ?></option>
                         <?php endforeach; ?>
-                    </datalist>
-                    <input type="hidden" id="municipalidad_id" name="municipalidad_id" value="">
-                    <small>Escriba parte del nombre y seleccione una municipalidad de la lista.</small>
+                    </select>
+                    <div id="region_municipalidad" class="region-municipalidad" aria-live="polite" hidden>
+                        <strong>Región:</strong> <span></span>
+                    </div>
+                    <small>La lista se filtrará mientras escribe.</small>
                 </div>
 
                 <p class="nota"><strong>Nota:</strong> Se enviará un correo de confirmación al email registrado.</p>
@@ -110,15 +112,15 @@ while ($row = $result->fetch_assoc()) {
             </form>
         </div>
 
-        <div class="acceso-funcionario">
-            <a href="funcionario/login.php">Acceso Funcionario</a>
-        </div>
     </div>
 
     <div class="footer">
         <p>&copy; 2024 Sistema de Solicitudes - Municipalidad de Los Lagos</p>
+        <div class="acceso-funcionario">
+            <a href="funcionario/login.php">Acceso Funcionario</a>
+        </div>
     </div>
-    <script src="public/js/buscador-municipalidades.js?v=20260812-1" defer></script>
+    <script src="public/js/buscador-municipalidades.js?v=20260812-2" defer></script>
     <script src="public/js/espera.js?v=20260730-1" defer></script>
 </body>
 </html>
