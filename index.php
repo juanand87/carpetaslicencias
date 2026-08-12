@@ -32,7 +32,8 @@ while ($row = $result->fetch_assoc()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Solicitudes - Carpetas de Licencias</title>
-    <link rel="stylesheet" href="public/css/style.css?v=20260730-3">
+    <link rel="stylesheet" href="public/vendor/tom-select/tom-select.default.min.css?v=2.6.2">
+    <link rel="stylesheet" href="public/css/style.css?v=20260812-4">
 </head>
 <body>
     <div class="header">
@@ -81,34 +82,8 @@ while ($row = $result->fetch_assoc()) {
                 </div>
 
                 <div class="form-group">
-                    <label id="etiqueta_municipalidad">Municipalidad <span class="requerido">*</span></label>
-                    <div class="selector-comuna" id="selector_comuna">
-                        <button
-                            type="button"
-                            class="selector-comuna-boton"
-                            id="selector_comuna_boton"
-                            aria-labelledby="etiqueta_municipalidad selector_comuna_texto"
-                            aria-haspopup="listbox"
-                            aria-expanded="false"
-                        >
-                            <span id="selector_comuna_texto">Seleccione una municipalidad...</span>
-                            <span class="selector-comuna-flecha" aria-hidden="true"></span>
-                        </button>
-                        <div class="selector-comuna-panel" id="selector_comuna_panel" hidden>
-                            <div class="selector-comuna-busqueda">
-                                <span aria-hidden="true">⌕</span>
-                                <input
-                                    type="search"
-                                    id="buscador_municipalidad"
-                                    placeholder="Buscar comuna..."
-                                    autocomplete="off"
-                                    aria-label="Buscar comuna"
-                                >
-                            </div>
-                            <ul class="selector-comuna-lista" id="lista_municipalidades" role="listbox"></ul>
-                        </div>
-                    </div>
-                    <select id="municipalidad_id" name="municipalidad_id" class="selector-comuna-native" tabindex="-1" aria-hidden="true">
+                    <label for="municipalidad_id">Municipalidad <span class="requerido">*</span></label>
+                    <select id="municipalidad_id" name="municipalidad_id" required placeholder="Seleccione una municipalidad...">
                         <option value="">Seleccione una municipalidad...</option>
                         <?php foreach ($municipalidades as $municipalidad): ?>
                             <option
@@ -138,7 +113,8 @@ while ($row = $result->fetch_assoc()) {
             <a href="funcionario/login.php">Acceso Funcionario</a>
         </div>
     </div>
-    <script src="public/js/buscador-municipalidades.js?v=20260812-3" defer></script>
+    <script src="public/vendor/tom-select/tom-select.complete.min.js?v=2.6.2" defer></script>
+    <script src="public/js/buscador-municipalidades.js?v=20260812-4" defer></script>
     <script src="public/js/espera.js?v=20260730-1" defer></script>
 </body>
 </html>
