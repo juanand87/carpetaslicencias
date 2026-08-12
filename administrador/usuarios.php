@@ -104,7 +104,7 @@ if (isset($_GET['desactivar'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionar Funcionarios | Administración</title>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css?v=20260730-3">
     <style>
         .dashboard-container {
             display: grid;
@@ -238,7 +238,7 @@ if (isset($_GET['desactivar'])) {
             <!-- CONTENIDO PRINCIPAL -->
             <div class="admin-content">
                 <h2>Gestión de Funcionarios</h2>
-                <p>Crea, edita o desactiva usuarios funcionarios del sistema.</p>
+                <p>Crea, edita o desactiva usuarios funcionarios del sistema. Todos los funcionarios activos recibirán un correo cuando ingrese una nueva solicitud.</p>
 
                 <?php if (!empty($mensaje)): ?>
                     <div class="alert alert-<?= $tipo_mensaje ?>">

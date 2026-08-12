@@ -7,13 +7,13 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #eef3f8;
     color: #333;
     line-height: 1.6;
 }
 
 a {
-    color: #007bff;
+    color: #0b4f8a;
     text-decoration: none;
 }
 
@@ -23,7 +23,7 @@ a:hover {
 
 /* Header */
 .header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0b2f5b 0%, #061d3a 100%);
     color: white;
     padding: 30px 0;
     margin-bottom: 40px;
@@ -49,7 +49,7 @@ a:hover {
 
 /* Footer */
 .footer {
-    background-color: #333;
+    background-color: #061d3a;
     color: white;
     text-align: center;
     padding: 20px;
@@ -105,7 +105,7 @@ a:hover {
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #0b2f5b;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -139,14 +139,14 @@ a:hover {
 }
 
 .btn-primary {
-    background-color: #667eea;
+    background-color: #0b2f5b;
     color: white;
     width: 100%;
     padding: 12px;
 }
 
 .btn-primary:hover {
-    background-color: #5568d3;
+    background-color: #164a7b;
     text-decoration: none;
 }
 
@@ -265,7 +265,7 @@ a:hover {
 }
 
 .tabla thead {
-    background-color: #667eea;
+    background-color: #0b2f5b;
     color: white;
 }
 
@@ -280,7 +280,7 @@ a:hover {
 }
 
 .tabla tbody tr:nth-child(even) {
-    background-color: #f5f5f5;
+    background-color: #eef3f8;
 }
 
 /* Estados */
@@ -352,9 +352,9 @@ a:hover {
 
 .sidebar nav a:hover,
 .sidebar nav a.active {
-    background-color: #f5f5f5;
-    border-left-color: #667eea;
-    color: #667eea;
+    background-color: #eef3f8;
+    border-left-color: #0b2f5b;
+    color: #0b2f5b;
 }
 
 /* Grid layout */
@@ -411,3 +411,94 @@ a:hover {
     display: none;
 }
 
+
+/* Envío de solicitud */
+.loader-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(3, 18, 38, 0.78);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.loader-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader-card {
+    width: min(390px, 100%);
+    padding: 34px 28px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #0b2f5b;
+}
+
+.loader-card p {
+    margin: 0 0 5px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.loader-card small {
+    color: #5c6f82;
+}
+
+.loader-spinner {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 18px;
+    border: 5px solid #d9e4ef;
+    border-top-color: #0b2f5b;
+    border-radius: 50%;
+    animation: girar-loader 0.85s linear infinite;
+}
+
+.enviando-solicitud {
+    overflow: hidden;
+}
+
+@keyframes girar-loader {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loader-spinner { animation-duration: 1.8s; }
+}
+
+/* Identidad institucional */
+.header .container {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    column-gap: 22px;
+    align-items: center;
+}
+
+.header .container::before {
+    content: "";
+    grid-row: 1 / span 2;
+    width: 170px;
+    height: 72px;
+    background: url("https://muniloslagos.cl/wp-content/uploads/2025/02/logo_blanco2025.png") center / contain no-repeat;
+}
+
+@media (max-width: 600px) {
+    .header .container {
+        grid-template-columns: 110px minmax(0, 1fr);
+        column-gap: 14px;
+    }
+
+    .header .container::before {
+        width: 110px;
+        height: 58px;
+    }
+}

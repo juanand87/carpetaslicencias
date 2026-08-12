@@ -59,7 +59,7 @@ function crear_solicitud($conn, $datos) {
         // Notificar nueva solicitud
         notificar_nueva_solicitud($conn, $solicitud_id);
         
-        return ['success' => true, 'mensaje' => 'Solicitud creada exitosamente', 'id' => $solicitud_id];
+        return ['success' => true, 'mensaje' => 'Hemos recibido su solicitud exitosamente. Cuando se cargue la carpeta al sistema, recibirá una notificación.', 'id' => $solicitud_id];
     }
     
     return ['success' => false, 'mensaje' => 'Error al crear la solicitud'];
@@ -180,8 +180,11 @@ function cambiar_estado_solicitud($conn, $solicitud_id, $nuevo_estado, $observac
     $stmt->bind_param("iisss", $solicitud_id, $usuario_id, $estado_anterior, $nuevo_estado, $observaciones);
     $stmt->execute();
     
-    // Notificar cambio de estado
-    notificar_cambio_estado($conn, $solicitud_id);
+    // Avisar únicamente cuando la carpeta pasa a un estado de carga.
+    $estados_cargados = ['Cargada', 'Cargada con observaciones'];
+    if ($estado_anterior !== $nuevo_estado && in_array($nuevo_estado, $estados_cargados, true)) {
+        notificar_carpeta_cargada($conn, $solicitud_id);
+    }
     
     return ['success' => true, 'mensaje' => 'Estado actualizado exitosamente'];
 }

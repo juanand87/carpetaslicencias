@@ -96,7 +96,7 @@ foreach ($solicitudes as $solicitud) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Funcionario | Sistema de Solicitudes</title>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css?v=20260730-3">
     <style>
         .dashboard-container {
             display: grid;

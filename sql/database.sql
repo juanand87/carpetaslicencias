@@ -314,7 +314,7 @@ INSERT IGNORE INTO municipalidades (nombre, region) VALUES
 
 -- Insertar plantillas de correo por defecto
 INSERT IGNORE INTO plantillas_correo (tipo, asunto, cuerpo) VALUES
-('nueva_solicitud', 'Nueva solicitud de carpeta de licencia recibida', 'Se ha recibido una nueva solicitud para:\n\nNombre: {nombre} {apellido_paterno} {apellido_materno}\nRUN: {run}\nMunicipalidad: {municipalidad}\n\nPor favor, revisar y procesar la solicitud en el sistema.'),
+('nueva_solicitud', 'Nueva solicitud de carpeta de licencia #{solicitud_id}', '<h2>Nueva solicitud de carpeta de licencia</h2><p>Estimado/a funcionario/a:</p><p>Se informa que ha ingresado una nueva solicitud de carpeta de licencia al sistema.</p><p><strong>N.º de solicitud:</strong> {solicitud_id}<br><strong>Persona solicitada:</strong> {nombre} {apellido_paterno} {apellido_materno}<br><strong>RUN:</strong> {run}<br><strong>Municipalidad solicitante:</strong> {municipalidad}<br><strong>Correo del solicitante:</strong> {correo_solicitante}</p><p>Por favor, ingrese al sistema para revisar y gestionar esta solicitud.</p><p>Atentamente,<br>Sistema de Carpetas de Licencias<br>Municipalidad de Los Lagos</p>'),
 ('estado_cambio', 'Estado de su solicitud actualizado', 'El estado de su solicitud ha sido actualizado a: {estado}\n\nDetalles de la solicitud:\nNombre: {nombre} {apellido_paterno} {apellido_materno}\nRUN: {run}\n\nObservaciones: {observaciones}'),
 ('solicitud_cargada', 'Solicitud completada', 'La carpeta de licencia ha sido cargada exitosamente.\n\nDetalles:\nNombre: {nombre}\nRUN: {run}'),
 ('solicitud_rechazada', 'Solicitud rechazada', 'Lamentamos informar que su solicitud ha sido rechazada.\n\nMotivo: {observaciones}');

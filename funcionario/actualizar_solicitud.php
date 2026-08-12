@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_estado']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Solicitud | Sistema de Solicitudes</title>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css?v=20260730-3">
     <style>
         .formulario-contenedor {
             background: white;
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_estado']))
         <div class="formulario-contenedor">
             <h2>Información de la Solicitud</h2>
 
-            <div style="background: #f5f5f5; padding: 20px; border-radius: 4px; margin-bottom: 30px;">
+            <div style="background: #eef3f8; border-left: 4px solid #0b2f5b; padding: 20px; border-radius: 4px; margin-bottom: 30px;">
                 <p><strong>Nombre:</strong> <?= htmlspecialchars($solicitud['nombre_solicitado'] . ' ' . $solicitud['apellido_paterno_solicitado']) ?></p>
                 <p><strong>RUN:</strong> <?= htmlspecialchars($solicitud['run_solicitado']) ?></p>
                 <p><strong>Municipalidad:</strong> <?= htmlspecialchars($solicitud['municipalidad']) ?></p>
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_estado']))
 
             <h2>Actualizar Estado</h2>
 
-            <form method="POST" class="formulario">
+            <form method="POST" class="formulario" data-espera-mensaje="Actualizando el estado de la solicitud…" data-espera-mensaje-correo="Actualizando el estado y enviando la notificación por correo…">
                 <input type="hidden" name="solicitud_id" value="<?= $solicitud['id'] ?>">
 
                 <div class="form-group">
@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_estado']))
                 </div>
 
                 <div style="display: flex; gap: 10px;">
-                    <button type="submit" name="actualizar_estado" class="btn btn-success">
+                    <button type="submit" name="actualizar_estado" class="btn btn-primary" style="width: auto;">
                         ✓ Guardar Cambios
                     </button>
                     <a href="ver_solicitud.php?id=<?= $solicitud['id'] ?>" class="btn btn-secondary" style="width: auto;">
@@ -160,6 +160,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_estado']))
             }
         }
     </script>
+
+    <script src="../public/js/espera.js?v=20260730-1" defer></script>
 
     <div class="footer">
         <p>&copy; 2024 Sistema de Solicitudes - Municipalidad de Los Lagos</p>

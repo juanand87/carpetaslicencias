@@ -32,7 +32,7 @@ while ($row = $result->fetch_assoc()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Solicitudes - Carpetas de Licencias</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/style.css?v=20260730-3">
 </head>
 <body>
     <div class="header">
@@ -53,7 +53,7 @@ while ($row = $result->fetch_assoc()) {
                 </div>
             <?php endif; ?>
 
-            <form method="POST" class="formulario">
+            <form method="POST" class="formulario" id="form-solicitud" data-espera-mensaje="Enviando su solicitud…">
                 <div class="form-group">
                     <label for="nombre">Nombre del Solicitado <span class="requerido">*</span></label>
                     <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan">
@@ -110,5 +110,6 @@ while ($row = $result->fetch_assoc()) {
     <div class="footer">
         <p>&copy; 2024 Sistema de Solicitudes - Municipalidad de Los Lagos</p>
     </div>
+    <script src="public/js/espera.js?v=20260730-1" defer></script>
 </body>
 </html>

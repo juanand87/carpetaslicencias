@@ -54,6 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_plantilla'
     }
 }
 
+$nombres_plantillas = [
+    'nueva_solicitud' => 'Nueva solicitud para funcionarios',
+    'estado_cambio' => 'Cambio de estado',
+    'solicitud_cargada' => 'Carpeta cargada',
+    'solicitud_rechazada' => 'Solicitud rechazada'
+];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -61,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_plantilla'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plantillas de Correo | Administración</title>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css?v=20260730-3">
     <style>
         .dashboard-container {
             display: grid;
@@ -193,7 +199,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_plantilla'
                         <h3 style="font-size: 14px; margin-bottom: 10px; color: #333;">Plantillas Disponibles</h3>
                         <?php foreach ($plantillas as $index => $plantilla): ?>
                             <div class="plantilla-card" onclick="mostrarPlantilla(<?= $plantilla['id'] ?>)">
-                                <h4><?= htmlspecialchars($plantilla['tipo']) ?></h4>
+                                <h4><?= htmlspecialchars($nombres_plantillas[$plantilla['tipo']] ?? $plantilla['tipo']) ?></h4>
                                 <p><?= substr(htmlspecialchars($plantilla['asunto']), 0, 50) ?>...</p>
                             </div>
                         <?php endforeach; ?>
@@ -201,9 +207,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_plantilla'
 
                     <!-- FORMULARIO DE EDICIÓN -->
                     <div>
-                        <?php foreach ($plantillas as $plantilla): ?>
-                            <div id="plantilla-<?= $plantilla['id'] ?>" style="display: <?= ($plantilla['id'] === 1) ? 'block' : 'none' ?>;">
-                                <h3><?= htmlspecialchars($plantilla['tipo']) ?></h3>
+                        <?php foreach ($plantillas as $index => $plantilla): ?>
+                            <div id="plantilla-<?= $plantilla['id'] ?>" style="display: <?= ($index === 0) ? 'block' : 'none' ?>;">
+                                <h3><?= htmlspecialchars($nombres_plantillas[$plantilla['tipo']] ?? $plantilla['tipo']) ?></h3>
 
                                 <form method="POST" class="formulario">
                                     <input type="hidden" name="plantilla_id" value="<?= $plantilla['id'] ?>">
@@ -220,6 +226,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_plantilla'
 
                                     <div class="variables-ayuda">
                                         <strong>Variables disponibles:</strong><br>
+                                        {solicitud_id} - Número de solicitud<br>
                                         {nombre} - Nombre del solicitado<br>
                                         {apellido_paterno} - Apellido paterno<br>
                                         {apellido_materno} - Apellido materno<br>

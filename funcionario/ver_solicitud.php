@@ -39,7 +39,7 @@ $bitacora = obtener_bitacora_solicitud($conn, $solicitud_id);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Solicitud | Sistema de Solicitudes</title>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css?v=20260730-3">
     <style>
         .detalle-solicitud {
             background: white;
