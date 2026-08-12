@@ -81,15 +81,34 @@ while ($row = $result->fetch_assoc()) {
                 </div>
 
                 <div class="form-group">
-                    <label for="buscador_municipalidad">Buscar comuna</label>
-                    <input
-                        type="text"
-                        id="buscador_municipalidad"
-                        placeholder="Escriba para buscar una comuna..."
-                        autocomplete="off"
-                    >
-                    <label for="municipalidad_id" class="label-selector-municipalidad">Municipalidad <span class="requerido">*</span></label>
-                    <select id="municipalidad_id" name="municipalidad_id" required>
+                    <label id="etiqueta_municipalidad">Municipalidad <span class="requerido">*</span></label>
+                    <div class="selector-comuna" id="selector_comuna">
+                        <button
+                            type="button"
+                            class="selector-comuna-boton"
+                            id="selector_comuna_boton"
+                            aria-labelledby="etiqueta_municipalidad selector_comuna_texto"
+                            aria-haspopup="listbox"
+                            aria-expanded="false"
+                        >
+                            <span id="selector_comuna_texto">Seleccione una municipalidad...</span>
+                            <span class="selector-comuna-flecha" aria-hidden="true"></span>
+                        </button>
+                        <div class="selector-comuna-panel" id="selector_comuna_panel" hidden>
+                            <div class="selector-comuna-busqueda">
+                                <span aria-hidden="true">⌕</span>
+                                <input
+                                    type="search"
+                                    id="buscador_municipalidad"
+                                    placeholder="Buscar comuna..."
+                                    autocomplete="off"
+                                    aria-label="Buscar comuna"
+                                >
+                            </div>
+                            <ul class="selector-comuna-lista" id="lista_municipalidades" role="listbox"></ul>
+                        </div>
+                    </div>
+                    <select id="municipalidad_id" name="municipalidad_id" class="selector-comuna-native" tabindex="-1" aria-hidden="true">
                         <option value="">Seleccione una municipalidad...</option>
                         <?php foreach ($municipalidades as $municipalidad): ?>
                             <option
@@ -101,7 +120,6 @@ while ($row = $result->fetch_assoc()) {
                     <div id="region_municipalidad" class="region-municipalidad" aria-live="polite" hidden>
                         <strong>Región:</strong> <span></span>
                     </div>
-                    <small>La lista se filtrará mientras escribe.</small>
                 </div>
 
                 <p class="nota"><strong>Nota:</strong> Se enviará un correo de confirmación al email registrado.</p>
@@ -120,7 +138,7 @@ while ($row = $result->fetch_assoc()) {
             <a href="funcionario/login.php">Acceso Funcionario</a>
         </div>
     </div>
-    <script src="public/js/buscador-municipalidades.js?v=20260812-2" defer></script>
+    <script src="public/js/buscador-municipalidades.js?v=20260812-3" defer></script>
     <script src="public/js/espera.js?v=20260730-1" defer></script>
 </body>
 </html>

@@ -240,10 +240,6 @@ a:hover {
     text-align: center;
 }
 
-.form-group .label-selector-municipalidad {
-    margin-top: 12px;
-}
-
 .region-municipalidad {
     margin-top: 8px;
     padding: 9px 12px;
@@ -251,6 +247,116 @@ a:hover {
     background: #f3f6f9;
     color: #495057;
     font-size: 13px;
+}
+
+.selector-comuna {
+    position: relative;
+}
+
+.selector-comuna-boton {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    color: #777;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.selector-comuna-boton.seleccionado {
+    color: #333;
+}
+
+.selector-comuna-boton:focus,
+.selector-comuna.abierto .selector-comuna-boton {
+    outline: none;
+    border-color: #0b2f5b;
+    box-shadow: 0 0 0 3px rgba(11, 47, 91, 0.12);
+}
+
+.selector-comuna-boton.invalido {
+    border-color: #dc3545;
+}
+
+.selector-comuna-flecha {
+    width: 0;
+    height: 0;
+    margin-left: 12px;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-top: 6px solid #555;
+}
+
+.selector-comuna.abierto .selector-comuna-flecha {
+    transform: rotate(180deg);
+}
+
+.selector-comuna-panel {
+    position: absolute;
+    z-index: 50;
+    top: calc(100% + 4px);
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.selector-comuna-busqueda {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    color: #777;
+}
+
+.form-group .selector-comuna-busqueda input {
+    min-width: 0;
+    padding: 8px 10px;
+}
+
+.selector-comuna-lista {
+    max-height: 260px;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.selector-comuna-opcion,
+.selector-comuna-vacio {
+    padding: 10px 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.selector-comuna-opcion {
+    color: #222;
+    cursor: pointer;
+}
+
+.selector-comuna-opcion:hover,
+.selector-comuna-opcion:focus,
+.selector-comuna-opcion[aria-selected="true"] {
+    outline: none;
+    background: #0b75bd;
+    color: #fff;
+}
+
+.selector-comuna-vacio {
+    color: #777;
+    font-size: 13px;
+}
+
+.selector-comuna-native {
+    display: none;
 }
 
 .acceso-funcionario a {
